@@ -6,7 +6,7 @@ logging.basicConfig(filename='security_log.log', encoding='utf-8', level=logging
 
 if __name__ == '__main__':
  
-    password = 1234abcd
+    password = "AdD3123456"
     try:
         print (f"The password as the byte string : {sanitiser.check_password(password).hex()} is ready to be encryted" )
     except TypeError:

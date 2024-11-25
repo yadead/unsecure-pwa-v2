@@ -2,6 +2,8 @@ import re
 import html
 import bcrypt
 
+
+
 def replace_characters(input_string: str) -> str:
     to_replace = ["<", ">", ";"]
     replacements = ["%3C", "%3E", "%3B"]
@@ -20,9 +22,9 @@ def check_password(password: str) -> bytes:
         raise ValueError("more than 12 characters")
     if re.search(r"[@$!%*?&]", password):
         raise ValueError("contains one of '@$!%*?&' special characters")
-    if re.findall(r"[a-z]", password) + (r"[A-Z]", password)< 4:
+    if len(re.findall(r"[a-z]", password)) + len(re.findall(r"[A-Z]", password))< 3:
         raise ValueError("Has less than 4 Alpha")
-    if re.findall(r"[0-9]", password) < 3:
+    if len(re.findall(r"[0-9]", password)) < 2:
         raise ValueError("Has less than 3 Numbers")
 
     return password.encode
